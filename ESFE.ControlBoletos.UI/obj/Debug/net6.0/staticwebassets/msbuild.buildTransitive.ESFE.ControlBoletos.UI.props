@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ESFE.ControlBoletos.UI.props" />
+</Project>
