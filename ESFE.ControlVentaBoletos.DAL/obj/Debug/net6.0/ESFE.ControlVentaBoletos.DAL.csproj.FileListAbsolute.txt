@@ -1,0 +1,17 @@
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\bin\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.deps.json
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\bin\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.runtimeconfig.json
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\bin\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.dll
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\bin\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.pdb
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.csproj.AssemblyReference.cache
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.AssemblyInfoInputs.cache
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.AssemblyInfo.cs
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.dll
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\refint\ESFE.ControlVentaBoletos.DAL.dll
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.pdb
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.genruntimeconfig.cache
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ref\ESFE.ControlVentaBoletos.DAL.dll
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\bin\Debug\net6.0\ESFE.ControlVentaBoletos.EN.dll
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\bin\Debug\net6.0\ESFE.ControlVentaBoletos.EN.pdb
+C:\Users\Carlos David\Desktop\ControVentaBoletos\ESFE_ControlVentaBoletos\ESFE.ControlVentaBoletos.DAL\obj\Debug\net6.0\ESFE.ControlVentaBoletos.DAL.csproj.CopyComplete

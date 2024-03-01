@@ -1,0 +1,226 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+	<div class="col-sm-12" ">
+
+		<!--inicio de tarjeta-->
+		<div class="card">
+			<div class="card-header">Asignacion</div>
+			<div class="card-body">
+
+				<button class="btn btn-primary" id="btnNuevo">Asignar</button>
+
+				<hr />
+				<div class="table-responsive">
+					<table class="table table-dark table-hover" id="tbAsignacion">
+						<thead>
+							<tr>
+								<th>Cantidad de boletos asignados</th>
+								<th>Fecha de asignacion</th>
+								<th>ID Boleto</th>
+								<th>ID Docente</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--fin de la tarjeta-->
+	</div>
+</div>
+
+<!--inicio modal-->
+
+<div class="modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-dark text-white">
+				
+				<h5 class="modal-title"> Detalle de la Asignacion </h5>
+				<botton type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></botton>
+			</div>
+			<div class="modal-body">
+				<input id="txtIdAsignacion" type="hidden" value="0" />
+
+				<div class="mb-2">
+					<label> Cantidad de boletos asignados </label>
+					<input type="text" class="form-control" id="txtCantBoletosAsignados" />
+				</div>
+
+
+				<div class="mb-2">
+					<label> Fecha de Asignacion </label>
+					<input type="text" class="form-control" id="txtFechaAsig">
+				</div>
+
+
+				<div class="mb-2">
+					<label> ID Boleto </label>
+					<input type="number" class="form-control" id="txtIdBoleto">
+
+				</div>
+
+
+				<div class="mb-2">
+					<label> ID Grupo </label>
+					<input type="text" class="form-control" id="txtIdGrupo">
+				</div>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary " id="btnGuardar">Guardar</button>
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--fin modal-->
+@section Scripts{
+	<script>
+		const Modelo_base = {
+			id: 0,
+			cantboletosasignados: "",
+			fechaAsig: "",
+			idboleto: "",
+			idgrupo: ""
+		}
+			$(document).ready(() => {
+
+			listaAsignacion();
+			})
+
+		function mostrarModal(modelo) {
+			$("#txtId").val(modelo.id);
+			$("#txtCantBoletosAsignados").val(modelo.cantboletosasignados);
+			$("#txtFechaAsig").val(modelo.fechaAsig);
+			$("#txtIdBoleto").val(modelo.idboleto);
+			$("#txtIdGrupo").val(modelo.idgrupo);
+
+			$('.modal').modal('show');
+		}
+
+		$("#btnNuevo").click(() => {
+			mostrarModal(Modelo_base);
+			$("#txtId").val(0);
+			$("#txtCantBoletosAsignados").val("");
+			$("#txtFechaAsig").val("");
+			$("#txtIdBoleto").val("");
+			$("#txtIdGrupo").val("");
+		})
+
+		$("#btnGuardar").click(() => {
+			let NuevaAsignacion = Modelo_base;
+
+			NuevaAsignacion["id"] = $("#txtId").val();
+			NuevaAsignacion["cantboletosasignados"] = $("#txtCantBoletosAsignados").val();
+			NuevaAsignacion["fechaAsig"] = $("#txtCategoria").val();
+			NuevaAsignacion["temporada"] = $("#txtFechaAsig").val();
+			NuevaAsignacion["idgrupo"] = $("#txtIdGrupo").val();
+
+			console.log(NuevaAsignacion)
+
+			if ($("#txtId").val() == "0" || $("#txtId").val() == undefined) {
+				fetch("Home/Insertar", {
+					method: "POST",
+					headers: {
+						'Content-Type': 'application/json;charset=utf-8'
+					},
+					body: JSON.stringify(NuevaAsignacion)
+				})
+					.then((response) => {
+						return response.ok ? response.json() : Promise.reject(response)
+					})
+					.then((dataJson) => {
+						if (dataJson.valor) {
+							alert("registrado");
+							$('.modal').modal('hide');
+							listaAsignacion();
+						}
+					})
+			} else {
+				fetch("Home/Actualizar", {
+					method: "PUT",
+					headers: {
+						'Content-Type': 'application/json;charset=utf-8'
+					},
+					body: JSON.stringify(NuevaAsignacion)
+				})
+					.then((response) => {
+						return response.ok ? response.json() : Promise.reject(response)
+					})
+					.then((dataJson) => {
+
+						if (dataJson.valor) {
+							alert("editado");
+							$('.modal').modal('hide');
+							listaAsignacion();
+						}
+					})
+			}
+		})
+		function listaAsignacion() {
+
+			fetch("Home/Lista")
+				.then((response) => {
+					return response.ok ? response.json() : Promise.reject(response)
+				})
+				.then((dataJson) => {
+
+					$("#tbAsignacion tbody").html("");
+
+					dataJson.forEach((item) => {
+
+						$("#tbAsignacion tbody").append(
+							$("<tr>").append(
+								$("<td>").text(item.cantboletosasignados),
+								$("<td>").text(item.fechaAsig),
+								$("<td>").text(item.idboleto),
+								$("<td>").text(item.idgrupo),
+								$("<td>").append(
+									$("<button>").addClass("btn btn-primary btn-sm me-2 btn-editar").data("modelo", item).text("Editar"),
+									$("<button>").addClass("btn btn-danger btn-sm btn-eliminar").data("id", item.id).text("Eliminar")
+								)
+							)
+						)
+
+					})
+				})
+		}
+
+		$("#tbAsignacion tbody").on("click", ".btn-editar", function () {
+			let asignacion = $(this).data("modelo")
+
+			mostrarModal(asignacion)
+		})
+		$("#tbAsignacion tbody").on("click", ".btn-eliminar", function () {
+			let id = $(this).data("id")
+
+			let resultado = window.confirm("¿Desea eliminar la Asignacion?");
+
+
+			if (resultado) {
+
+
+				fetch("Home/Eliminar?id=" + id, {
+					method: "DELETE"
+				})
+					.then((response) => {
+						return response.ok ? response.json() : Promise.reject(response)
+					})
+					.then((dataJson) => {
+
+						if (dataJson.valor) {
+							listaAsignacion();
+						}
+					})
+			}
+		})
+	</script>
+}
